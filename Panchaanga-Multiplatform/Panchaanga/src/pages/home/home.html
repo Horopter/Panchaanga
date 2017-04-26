@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title class="redColor">Panchaanga</ion-title>
+    <ion-buttons end>
+        <button (click)="onLoadNewPlace()" ion-button icon-only> <ion-icon name="add"></ion-icon> </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="row">
+    <button ion-button small round icon-only (click)="prevMonth()" [disabled]="disabledBack" col col-33>
+      <ion-icon name="arrow-round-back"></ion-icon>
+    </button>
+  <div text-center col col-33>{{MonthNamesList[RequestedMonth-1]}} - {{RequestedYear}}</div>
+    <button ion-button small round icon-only (click)="nextMonth()" [disabled]="disabledForward" col col-33>
+      <ion-icon name="arrow-round-forward"></ion-icon>
+    </button>
+  </div>
+  <ion-grid>
+    <ion-row>
+    <ion-col row-center *ngFor="let day of DayNamesList">
+      <div>{{day}}</div>
+    </ion-col>
+    </ion-row>
+    <ion-row row-center *ngFor="let strip of Grid">
+    <ion-col *ngFor="let day of strip">
+      <div (click)='onSelectDate(day)'>{{displayDate(day)}}</div>
+    </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
