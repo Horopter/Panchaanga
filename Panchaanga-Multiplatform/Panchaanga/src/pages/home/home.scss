@@ -1,5 +1,80 @@
 page-home {
-	.redColor > div{
-		color: red;
+	.header-color > * {
+		background-color : #428bca;
+	}
+	.text-white > *
+	{
+		color: #ffffff;
+	}
+	.title {
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 24px;
+	}
+	.week-header{
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 18px;
+		text-align: center;
+	}
+	.date-format-regular{
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 16px;
+		font-weight: bold;
+		cursor : pointer;
+		text-align: center;
+	}
+
+	.app-header{
+		margin-top : 35px;
+	}
+
+	div.date-hover:hover {
+		color : aqua;
+	}
+
+	.border{
+		border: 2px solid white;
+	}
+
+	.current-date{
+		color: white;
+		background-color: magenta;
+		border-radius : 10px;
+		text-align: center;
+	}
+
+	.ekadashi{
+		color:white;
+		background-color: #ff6666;
+		border-radius: 10px;
+		text-align: center;
+	}
+
+	.hunnime{
+		color:white;
+		background-color: orange;
+		border-radius: 10px;
+		text-align: center;
+	}
+
+	.amavasya{
+		color:white;
+		background-color: skyblue;
+		border-radius: 10px;
+		text-align: center;
+	}
+	.bisque{
+		background-color:bisque;
+	}
+
+	.index-grid{
+		margin-top: 20px;
+	}
+	
+	.font-12{
+		font-size: 12px;
+	}
+
+	ion-col{
+		height : 40px;
 	}
 }

@@ -1,32 +1,40 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title class="redColor">Panchaanga</ion-title>
-    <ion-buttons end>
-        <button (click)="onLoadNewPlace()" ion-button icon-only> <ion-icon name="add"></ion-icon> </button>
-    </ion-buttons>
+  <ion-navbar class="header-color">
+    <ion-title class="text-white">Panchaanga</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <div class="row">
-    <button ion-button small round icon-only (click)="prevMonth()" [disabled]="disabledBack" col col-33>
+<ion-content padding class="bisque">
+  <div class="row app-header">
+    <button ion-button small round icon-only (click)="prevMonth()" [disabled]="DisabledBack" col col-2>
       <ion-icon name="arrow-round-back"></ion-icon>
     </button>
-  <div text-center col col-33>{{MonthNamesList[RequestedMonth-1]}} - {{RequestedYear}}</div>
-    <button ion-button small round icon-only (click)="nextMonth()" [disabled]="disabledForward" col col-33>
+    <div text-center col class="title">{{MonthNamesList[RequestedMonth-1]}} - {{RequestedYear}}</div>
+    <button ion-button small round icon-only (click)="nextMonth()" [disabled]="DisabledForward" col col-2>
       <ion-icon name="arrow-round-forward"></ion-icon>
     </button>
   </div>
-  <ion-grid>
+  <ion-grid end>
     <ion-row>
     <ion-col row-center *ngFor="let day of DayNamesList">
-      <div>{{day}}</div>
+      <div class="week-header">{{day}}</div>
     </ion-col>
     </ion-row>
     <ion-row row-center *ngFor="let strip of Grid">
-    <ion-col *ngFor="let day of strip">
-      <div (click)='onSelectDate(day)'>{{displayDate(day)}}</div>
+    <ion-col *ngFor="let day of strip" 
+              [ngClass]="{'current-date':isCurrentDate(day),'ekadashi':isEkadashi(day),'hunnime':isHunnami(day),'amavasya':isAmavasya(day)}">
+      <div (click)='onSelectDate(day)' class="date-format-regular date-hover">
+          {{displayDate(day)}}
+        </div>
     </ion-col>
     </ion-row>
+  </ion-grid>
+
+  <ion-grid class="index-grid">
+  <ion-row>
+    <ion-col col-3 *ngFor="let day of Indices" class="{{day}} font-12 border">
+      {{getIndexName(day)}}
+    </ion-col>
+  </ion-row>
   </ion-grid>
 </ion-content>

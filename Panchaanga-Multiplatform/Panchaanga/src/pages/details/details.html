@@ -1,18 +1,13 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Details
-    </ion-title>
+  <ion-navbar class="header-color">
+    <ion-title class="text-white">Details</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding class="skyblue">
   <ion-list no-lines>
-  <ion-item *ngFor="let key of Keys" ng-if="Details">
-    {{key}} : {{ Details[key] }}
+  <ion-item *ngFor="let key of Keys">
+    {{getNameofKey(key)}} : {{ getValueofKey(key) }}
   </ion-item> 
-  <ion-item ng-if="!Details">
-      No information Found.
-  </ion-item>
 </ion-list>
 </ion-content>
